@@ -1,1 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicki Crochet | Tejidos con Amor</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="brand-area">
+                <div class="logo-circle">
+                    <img src="https://res.cloudinary.com/dwzwa3gp0/image/upload/v1767994381/WhatsApp_Image_2026-01-09_at_10.32.02_AM_qissjq.jpg" alt="Logo Nicki Crochet" class="logo-img">
+                </div>
+                <h1 class="brand-name">Nicki Crochet</h1>
+            </div>
+            
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="#inicio" class="active">Inicio</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-decoration"></div>
+        <div class="container hero-content">
+            <span class="hero-subtitle">Bienvenida a mi mundo</span>
+            <h2 class="hero-title">Tejidos hechos<br>con el corazón</h2>
+            <p class="hero-text">Creaciones únicas en crochet, diseñadas para resaltar tu belleza y delicadeza con cada puntada.</p>
+            <a href="#catalogo" class="btn-primary">
+                <i class="fa-solid fa-star"></i> Ver Colección
+            </a>
+        </div>
+    </section>
+
+    <section id="catalogo" class="catalog-section">
+        <div class="container">
+            <div class="section-header">
+                <h3 class="section-title">Mis Creaciones</h3>
+                <div class="divider">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <p>Piezas exclusivas tejidas a mano</p>
+            </div>
+
+            <div class="product-grid" id="productGrid">
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para Separar Pedido -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeOrderModal">&times;</span>
+            <h3 class="modal-title">Separar Pedido</h3>
+            
+            <div class="modal-body">
+                <p class="delivery-message" id="deliveryMessage"></p>
+                
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="whatsapp">Número de WhatsApp</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" placeholder="+51 999 999 999" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userName">Nombre Completo</label>
+                        <input type="text" id="userName" name="userName" placeholder="Tu nombre completo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dni">DNI</label>
+                        <input type="text" id="dni" name="dni" placeholder="12345678" maxlength="8" pattern="[0-9]{8}" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productName">Producto</label>
+                        <input type="text" id="productName" name="productName" readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productPrice">Precio</label>
+                        <input type="text" id="productPrice" name="productPrice" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="destination">Por favor, indique la dirección o el lugar donde llegará el envío.</label>
+                        <input type="text" id="destination" name="destination" placeholder="Ejemplo: tarapoto, buenos aires, etc." required>
+                    </div>
+
+                    <div class="shipping-section">
+                        <label class="shipping-label">Escoge una empresa para hacer el envío:</label>
+                        <div class="shipping-options">
+                            <div class="shipping-option">
+                                <input type="radio" id="shalom" name="shippingCompany" value="Shalom" required>
+                                <label for="shalom" class="shipping-card">
+                                    <i class="fa-solid fa-truck"></i>
+                                    <span class="shipping-name">Shalom</span>
+                                    <span class="shipping-desc">Envíos rápidos y seguros</span>
+                                </label>
+                            </div>
+                            <div class="shipping-option">
+                                <input type="radio" id="olva" name="shippingCompany" value="Olva Courier" required>
+                                <label for="olva" class="shipping-card">
+                                    <i class="fa-solid fa-box"></i>
+                                    <span class="shipping-name">Olva Courier</span>
+                                    <span class="shipping-desc">Cobertura nacional</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="qr-section">
+                        <img src="/images/YapeQRPayment.jpg" alt="QR Yape" class="qr-image">
+                        <p class="qr-instructions">Holiii, realiza el pago por Yape, escanea el QR. Luego de hacer el pago correspondiente, ingresa los 3 dígitos del código de seguridad que te da Yape, para verificar si se realizó el pago.</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="securityCode">Código de seguridad (3 dígitos)</label>
+                        <input type="text" id="securityCode" name="securityCode" placeholder="XXX" maxlength="3" pattern="[0-9]{3}" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-confirm">Confirmar pedido</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación de Pedido -->
+    <div id="confirmationModal" class="modal confirmation-modal">
+        <div class="modal-content confirmation-modal-content">
+            <span class="close-modal" id="closeConfirmationModal">&times;</span>
+            <div class="confirmation-modal-header">
+                <i class="fa-solid fa-heart confirmation-modal-icon"></i>
+                <h3 class="confirmation-modal-title">Hola gracias por separar tu pedido</h3>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contacto" class="main-footer">
+        <div class="container footer-content">
+            <h2 class="footer-logo">Nicki Crochet</h2>
+            <div class="social-links">
+                <!-- Reemplaza "TU_ENLACE_DE_INSTAGRAM_AQUI" con tu URL real de Instagram -->
+                <a href="https://www.instagram.com/nicki_crochet25?igsh=MWd3cXB3dnplMGVmag%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <!-- Reemplaza "TU_NUMERO_DE_WHATSAPP_AQUI" con tu número (formato: 51999999999) -->
+                <a href="https://wa.me/c/51932216883" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <!-- Reemplaza "TU_ENLACE_DE_TIKTOK_AQUI" con tu URL real de TikTok -->
+                <a href="https://www.tiktok.com/@nickicrochet25?_r=1&_t=ZS-92vp4BLbwSG" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+            </div>
+            <p class="copyright">© 2026 Nicki Crochet. Hecho con <i class="fa-solid fa-heart" style="color: #d63384;"></i> y lana.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
