@@ -14,6 +14,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Decorative Elements -->
+    <div class="decorative-elements">
+        <div class="floating-hearts"></div>
+        <div class="falling-petals"></div>
+        <div class="butterflies"></div>
+        <div class="sparkles"></div>
+    </div>
 
     <header class="main-header">
         <div class="container header-content">
@@ -30,9 +37,6 @@
                     <li><a href="#catalogo">Catálogo</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
-                <div class="mobile-menu-btn">
-                    <i class="fa-solid fa-bars"></i>
-                </div>
             </nav>
         </div>
     </header>
@@ -67,13 +71,36 @@
     <!-- Modal para Separar Pedido -->
     <div id="orderModal" class="modal">
         <div class="modal-content">
-            <span class="close-modal" id="closeOrderModal">&times;</span>
+            <span class="close-modal" id="closeOrderModal">×</span>
             <h3 class="modal-title">Separar Pedido</h3>
             
             <div class="modal-body">
                 <p class="delivery-message" id="deliveryMessage"></p>
                 
+                <!-- Product Preview Section -->
+                <div class="product-preview">
+                    <img src="" alt="Producto" id="modalProductImage" class="modal-product-img">
+                    <div class="product-preview-info">
+                        <h4 id="modalProductName"></h4>
+                        <p class="modal-product-price" id="modalProductPrice"></p>
+                    </div>
+                </div>
+                
                 <form id="orderForm">
+                    <!-- Quantity Selector -->
+                    <div class="form-group">
+                        <label for="quantity">Cantidad</label>
+                        <div class="quantity-selector">
+                            <button type="button" class="qty-btn qty-minus" id="qtyMinus">
+                                <i class="fa-solid fa-minus"></i>
+                            </button>
+                            <input type="number" id="quantity" name="quantity" value="1" min="1" max="99" readonly>
+                            <button type="button" class="qty-btn qty-plus" id="qtyPlus">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
                     <div class="form-group">
                         <label for="whatsapp">Número de WhatsApp</label>
                         <input type="tel" id="whatsapp" name="whatsapp" placeholder="+51 999 999 999" required>
@@ -127,7 +154,7 @@
                     </div>
                     
                     <div class="qr-section">
-                        <img src="/images/YapeQRPayment.jpg" alt="QR Yape" class="qr-image">
+                        <img src="/images/YapePayment.jpg" alt="QR Yape" class="qr-image">
                         <p class="qr-instructions">Holiii, realiza el pago por Yape, escanea el QR. Luego de hacer el pago correspondiente, ingresa los 3 dígitos del código de seguridad que te da Yape, para verificar si se realizó el pago.</p>
                     </div>
                     
@@ -145,7 +172,7 @@
     <!-- Modal de Confirmación de Pedido -->
     <div id="confirmationModal" class="modal confirmation-modal">
         <div class="modal-content confirmation-modal-content">
-            <span class="close-modal" id="closeConfirmationModal">&times;</span>
+            <span class="close-modal" id="closeConfirmationModal">×</span>
             <div class="confirmation-modal-header">
                 <i class="fa-solid fa-heart confirmation-modal-icon"></i>
                 <h3 class="confirmation-modal-title">Hola gracias por separar tu pedido</h3>
@@ -157,15 +184,12 @@
         <div class="container footer-content">
             <h2 class="footer-logo">Nicki Crochet</h2>
             <div class="social-links">
-                <!-- Reemplaza "TU_ENLACE_DE_INSTAGRAM_AQUI" con tu URL real de Instagram -->
                 <a href="https://www.instagram.com/nicki_crochet25?igsh=MWd3cXB3dnplMGVmag%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
-                <!-- Reemplaza "TU_NUMERO_DE_WHATSAPP_AQUI" con tu número (formato: 51999999999) -->
                 <a href="https://wa.me/c/51932216883" target="_blank" rel="noopener noreferrer">
                     <i class="fa-brands fa-whatsapp"></i>
                 </a>
-                <!-- Reemplaza "TU_ENLACE_DE_TIKTOK_AQUI" con tu URL real de TikTok -->
                 <a href="https://www.tiktok.com/@nickicrochet25?_r=1&_t=ZS-92vp4BLbwSG" target="_blank" rel="noopener noreferrer">
                     <i class="fa-brands fa-tiktok"></i>
                 </a>
