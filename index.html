@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Control de estado de bloqueo -->
+    <!-- <div id="store-status" data-status="Holi, la tienda se cerró. Se volverá a abrir, se les comunicará o será publicado en mis redes sociales"></div> 
+
     <!-- Decorative Elements -->
     <div class="decorative-elements">
         <div class="floating-hearts"></div>
@@ -190,6 +193,53 @@
             <div class="confirmation-modal-header">
                 <i class="fa-solid fa-heart confirmation-modal-icon"></i>
                 <h3 class="confirmation-modal-title">Hola gracias por separar tu pedido</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Store Closure Overlay -->
+    <div id="storeClosureOverlay" class="store-closure-overlay">
+        <div class="closure-overlay-content">
+            <div class="closure-decorations">
+                <span class="closure-heart">💗</span>
+                <span class="closure-heart">❤️</span>
+                <span class="closure-heart">💖</span>
+                <span class="closure-flower">🌸</span>
+                <span class="closure-flower">🌺</span>
+                <span class="closure-woman">👩</span>
+            </div>
+            
+            <div class="closure-message-box">
+                <h2 class="closure-title">Tienda Temporalmente Cerrada</h2>
+                <div class="closure-divider">
+                    <span>💗</span>
+                </div>
+                <p class="closure-message" id="closureMessageText"></p>
+                <div class="closure-social-reminder">
+                    <p>Síguenos en nuestras redes sociales para estar al tanto:</p>
+                    <div class="closure-social-links">
+                        <a href="https://www.instagram.com/nicki_crochet25?igsh=MWd3cXB3dnplMGVmag%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/c/51932216883" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@nickicrochet25?_r=1&_t=ZS-92vp4BLbwSG" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+                <button class="closure-close-btn" id="closeOverlayBtn">
+                    <i class="fa-solid fa-heart"></i> Entendido
+                </button>
+            </div>
+            
+            <div class="closure-decorations-bottom">
+                <span class="closure-heart">💗</span>
+                <span class="closure-heart">❤️</span>
+                <span class="closure-heart">💖</span>
+                <span class="closure-flower">🌸</span>
+                <span class="closure-flower">🌺</span>
             </div>
         </div>
     </div>
