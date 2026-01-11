@@ -1,5 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    // --- Store Closure Overlay Control ---
+    const storeStatusElement = document.getElementById('store-status');
+    const storeClosureOverlay = document.getElementById('storeClosureOverlay');
+    const closeOverlayBtn = document.getElementById('closeOverlayBtn');
+    const closureMessageText = document.getElementById('closureMessageText');
+
+    // Check if store is closed
+    if (storeStatusElement && storeStatusElement.dataset.status) {
+        const closureMessage = storeStatusElement.dataset.status;
+        closureMessageText.textContent = closureMessage;
+        storeClosureOverlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Close overlay button
+    if (closeOverlayBtn) {
+        closeOverlayBtn.addEventListener('click', () => {
+            storeClosureOverlay.style.display = 'none';
+            document.body.style.overflow = '';
+        });
+    }
+
     // --- 1. Generador de Catálogo Dinámico ---
     
     const products = [
