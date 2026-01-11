@@ -8,6 +8,7 @@
     --text-light: #8e7d8e;
     --white: #ffffff;
     --glass: rgba(255, 255, 255, 0.9);
+    --product-card-bg: #FFF0F5;
     
     --font-script: 'Great Vibes', cursive;
     --font-body: 'Poppins', sans-serif;
@@ -202,6 +203,94 @@ body {
     }
 }
 
+/* --- Woman Figure Decorations --- */
+.woman-figure {
+    position: absolute;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.7;
+    transition: transform 0.3s ease;
+}
+
+.woman-figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(200, 162, 200, 0.3));
+}
+
+.woman-figure-1 {
+    top: 15%;
+    right: 5%;
+    width: 180px;
+    height: 250px;
+    animation: floatWoman1 8s infinite ease-in-out;
+}
+
+.woman-figure-2 {
+    top: 45%;
+    left: 3%;
+    width: 160px;
+    height: 220px;
+    animation: floatWoman2 10s infinite ease-in-out;
+    animation-delay: 2s;
+}
+
+.woman-figure-3 {
+    top: 70%;
+    right: 8%;
+    width: 150px;
+    height: 200px;
+    animation: floatWoman3 12s infinite ease-in-out;
+    animation-delay: 4s;
+}
+
+.woman-figure-4 {
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 190px;
+    animation: floatWoman4 9s infinite ease-in-out;
+    animation-delay: 1s;
+}
+
+@keyframes floatWoman1 {
+    0%, 100% {
+        transform: translateY(0) rotate(2deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(-2deg);
+    }
+}
+
+@keyframes floatWoman2 {
+    0%, 100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+    50% {
+        transform: translateY(-25px) rotate(3deg);
+    }
+}
+
+@keyframes floatWoman3 {
+    0%, 100% {
+        transform: translateY(0) rotate(1deg);
+    }
+    50% {
+        transform: translateY(-18px) rotate(-1deg);
+    }
+}
+
+@keyframes floatWoman4 {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0) rotate(-2deg);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-22px) rotate(2deg);
+    }
+}
+
 /* --- Header --- */
 .main-header {
     position: fixed;
@@ -258,6 +347,8 @@ body {
     display: flex;
     list-style: none;
     gap: 30px;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
 .navbar a {
@@ -399,7 +490,7 @@ body {
 }
 
 .product-card {
-    background: white;
+    background: var(--product-card-bg);
     border-radius: var(--radius-card);
     overflow: hidden;
     box-shadow: var(--shadow-soft);
@@ -527,6 +618,8 @@ body {
     animation: slideIn 0.4s ease;
     max-height: 90vh;
     overflow-y: auto;
+    position: relative;
+    z-index: 2001;
 }
 
 @keyframes slideIn {
@@ -937,17 +1030,36 @@ body {
     .product-grid {
         grid-template-columns: repeat(4, 1fr);
     }
+    
+    .woman-figure-1,
+    .woman-figure-2,
+    .woman-figure-3,
+    .woman-figure-4 {
+        width: 140px;
+        height: auto;
+    }
 }
 
 @media (max-width: 992px) {
     .product-grid {
         grid-template-columns: repeat(3, 1fr);
     }
+    
+    .woman-figure-1,
+    .woman-figure-2,
+    .woman-figure-3 {
+        width: 120px;
+        height: auto;
+    }
+    
+    .woman-figure-4 {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
     .hero {
-        padding-top: 140px;
+        padding-top: 180px;
     }
     
     .hero-title { 
@@ -959,20 +1071,23 @@ body {
         gap: 15px;
     }
     
+    /* CRITICAL FIX: Keep navigation horizontal on mobile */
     .navbar .nav-links {
         display: flex;
         flex-direction: row;
-        gap: 15px;
+        flex-wrap: nowrap;
+        gap: 10px;
         justify-content: center;
         width: 100%;
     }
     
     .navbar a {
-        font-size: 0.85rem;
-        padding: 8px 12px;
+        font-size: 0.8rem;
+        padding: 8px 15px;
         background: var(--soft-lilac);
         border-radius: 20px;
         transition: all 0.3s;
+        white-space: nowrap;
     }
     
     .navbar a:hover {
@@ -1014,6 +1129,13 @@ body {
         flex-direction: column;
         text-align: center;
     }
+    
+    /* Hide woman figures on mobile to avoid clutter */
+    .woman-figure-1,
+    .woman-figure-2,
+    .woman-figure-3 {
+        display: none;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1029,13 +1151,13 @@ body {
         font-size: 2.5rem;
     }
     
+    /* Ensure navigation stays horizontal even on very small screens */
     .navbar .nav-links {
-        flex-direction: column;
-        gap: 10px;
+        gap: 8px;
     }
     
     .navbar a {
-        width: 100%;
-        text-align: center;
+        font-size: 0.75rem;
+        padding: 6px 12px;
     }
 }
