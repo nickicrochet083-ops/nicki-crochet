@@ -38,6 +38,224 @@ body {
     position: relative;
 }
 
+/* --- Store Closure Overlay Styles --- */
+.store-closure-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.95), rgba(230, 230, 250, 0.95));
+    backdrop-filter: blur(15px);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    animation: overlayFadeIn 0.5s ease;
+}
+
+@keyframes overlayFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.closure-overlay-content {
+    position: relative;
+    max-width: 600px;
+    width: 90%;
+    padding: 20px;
+    animation: slideInScale 0.6s ease;
+}
+
+@keyframes slideInScale {
+    from {
+        transform: scale(0.7) translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.closure-decorations,
+.closure-decorations-bottom {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2rem;
+    z-index: 1;
+}
+
+.closure-decorations {
+    top: -30px;
+}
+
+.closure-decorations-bottom {
+    bottom: -30px;
+}
+
+.closure-heart,
+.closure-flower,
+.closure-woman {
+    animation: floatDecoration 3s infinite ease-in-out;
+    display: inline-block;
+}
+
+.closure-heart:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.closure-heart:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.closure-heart:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.closure-flower:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+.closure-flower:nth-child(5) {
+    animation-delay: 2s;
+}
+
+.closure-woman {
+    animation-delay: 2.5s;
+}
+
+@keyframes floatDecoration {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
+
+.closure-message-box {
+    background: white;
+    border-radius: 30px;
+    padding: 50px 40px;
+    box-shadow: 0 20px 60px rgba(200, 162, 200, 0.4);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    border: 3px solid var(--primary-lilac);
+}
+
+.closure-title {
+    font-family: var(--font-script);
+    font-size: 3rem;
+    color: var(--primary-lilac);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.closure-divider {
+    font-size: 2rem;
+    margin: 20px 0;
+    animation: heartBeat 1.5s infinite;
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+}
+
+.closure-message {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.closure-social-reminder {
+    background: var(--soft-lilac);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.closure-social-reminder p {
+    color: var(--text-dark);
+    font-size: 1rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.closure-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.closure-social-links a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-lilac);
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.closure-social-links a:hover {
+    background: var(--dark-lilac);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(200, 162, 200, 0.4);
+}
+
+.closure-close-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 40px;
+    background: linear-gradient(90deg, var(--primary-lilac), #e0b0ff);
+    color: white;
+    border: none;
+    border-radius: var(--radius-btn);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: var(--shadow-soft);
+}
+
+.closure-close-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--shadow-hover);
+    background: linear-gradient(90deg, #d8bfd8, var(--primary-lilac));
+}
+
+.closure-close-btn i {
+    animation: heartPulse 1.5s infinite;
+}
+
 /* --- Utility Classes --- */
 .container {
     max-width: 1200px;
@@ -1136,6 +1354,24 @@ body {
     .woman-figure-3 {
         display: none;
     }
+
+    /* Store Closure Overlay Mobile Adjustments */
+    .closure-title {
+        font-size: 2.2rem;
+    }
+
+    .closure-message {
+        font-size: 1rem;
+    }
+
+    .closure-message-box {
+        padding: 40px 25px;
+    }
+
+    .closure-decorations,
+    .closure-decorations-bottom {
+        font-size: 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1159,5 +1395,19 @@ body {
     .navbar a {
         font-size: 0.75rem;
         padding: 6px 12px;
+    }
+
+    .closure-title {
+        font-size: 1.8rem;
+    }
+
+    .closure-message {
+        font-size: 0.9rem;
+    }
+
+    .closure-social-links a {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
     }
 }
