@@ -22,14 +22,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 1. Generador de Catálogo Dinámico ---
+    // --- 1. Products Array with Multiple Images and Categories ---
     
     const products = [
-        { name: "Ramito de Hello Kitty", price: 55.00, img: "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768409244/WhatsApp_Image_2026-01-11_at_5.20.52_PM_yctd1y.jpg", deliveryDays: 5 },
-        { name: "Vegeta", price: 140.00, img: "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768409737/WhatsApp_Image_2026-01-11_at_5.19.36_PM_ne186o.jpg", deliveryDays: 5 },
-        { name: "Ramito de Snoopy", price: 60.00, img: "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768409998/WhatsApp_Image_2026-01-11_at_5.12.30_PM_nxyrjn.jpg", deliveryDays: 5 },
-        { name: "Capibara bebé", price: 45.00, img: "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768412464/image_88_xhoukg.jpg", deliveryDays: 5 },
-        { name: "Mini Spiderman", price: 55.00, img: "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768412752/image_89_a8ogo7.jpg", deliveryDays: 5 },
+        { 
+            name: "Ramito de Hello Kitty", 
+            price: 55.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768409244/WhatsApp_Image_2026-01-11_at_5.20.52_PM_yctd1y.jpg",
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1767994381/WhatsApp_Image_2026-01-09_at_10.32.02_AM_qissjq.jpg"
+            ],
+            deliveryDays: 5,
+            category: "ramos"
+        },
+        { 
+            name: "Vegeta", 
+            price: 140.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768409737/WhatsApp_Image_2026-01-11_at_5.19.36_PM_ne186o.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "personajes"
+        },
+        { 
+            name: "Ramito de Snoopy", 
+            price: 60.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768409998/WhatsApp_Image_2026-01-11_at_5.12.30_PM_nxyrjn.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "ramos"
+        },
+        { 
+            name: "Capibara bebé", 
+            price: 45.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768412464/image_88_xhoukg.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "personajes"
+        },
+        { 
+            name: "Mini Spiderman", 
+            price: 55.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768412752/image_89_a8ogo7.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "personajes"
+        },
+        { 
+            name: "Llavero Tejido", 
+            price: 25.00, 
+            images: [
+                "/images/Keychain.jpg"
+            ], 
+            deliveryDays: 3,
+            category: "llaveros"
+        }
     ];
 
     const productGrid = document.getElementById('productGrid');
@@ -43,62 +93,354 @@ document.addEventListener('DOMContentLoaded', () => {
     const qtyMinusBtn = document.getElementById('qtyMinus');
     const qtyPlusBtn = document.getElementById('qtyPlus');
 
-    // Función para renderizar tarjetas
-    products.forEach((product, index) => {
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.innerHTML = `
-            <div class="product-img-box">
-                <img src="${product.img}" alt="${product.name}" class="product-img">
-            </div>
-            <div class="product-info">
-                <h4 class="product-title">${product.name}</h4>
-                <span class="product-price">S/ ${product.price.toFixed(2)}</span>
-                <span class="delivery-days">
-                    <i class="fa-solid fa-truck-fast"></i>
-                    Llega en ${product.deliveryDays} días
-                </span>
-                <button class="btn-reserve" data-index="${index}">
-                    <i class="fa-solid fa-bookmark"></i> Separar pedido
+    // Lightbox elements
+    const lightboxModal = document.getElementById('lightboxModal');
+    const closeLightbox = document.getElementById('closeLightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+    
+    let currentLightboxProduct = null;
+    let currentLightboxIndex = 0;
+
+    // --- 2. Render Product Cards with Gallery Support and "Open Image" Button ---
+    
+    function renderProducts() {
+        productGrid.innerHTML = '';
+        
+        products.forEach((product, index) => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.setAttribute('data-category', product.category);
+            
+            // Create image gallery HTML
+            const hasMultipleImages = product.images.length > 1;
+            
+            // Only show gallery controls if there are multiple images
+            const galleryControlsHTML = hasMultipleImages ? `
+                <button class="gallery-nav prev" data-direction="prev">
+                    <i class="fa-solid fa-chevron-left"></i>
                 </button>
-            </div>
-        `;
-        productGrid.appendChild(card);
+                <button class="gallery-nav next" data-direction="next">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                <div class="gallery-indicators">
+                    ${product.images.map((_, i) => `
+                        <span class="gallery-indicator ${i === 0 ? 'active' : ''}" data-index="${i}"></span>
+                    `).join('')}
+                </div>
+            ` : '';
+            
+            const galleryHTML = `
+                <div class="product-img-box" data-product-index="${index}">
+                    <img src="${product.images[0]}" alt="${product.name}" class="product-img" data-current-index="0">
+                    ${galleryControlsHTML}
+                    <button class="open-image-btn" data-product-index="${index}">
+                        <i class="fa-solid fa-expand"></i> </butto> 
+                    </div>
+            `;
+            
+            card.innerHTML = `
+                ${galleryHTML}
+                <div class="product-info">
+                    <h4 class="product-title">${product.name}</h4>
+                    <span class="product-price">S/ ${product.price.toFixed(2)}</span>
+                    <span class="delivery-days">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        Llega en ${product.deliveryDays} días
+                    </span>
+                    <button class="btn-reserve" data-index="${index}">
+                        <i class="fa-solid fa-bookmark"></i> Separar pedido
+                    </button>
+                </div>
+            `;
+            productGrid.appendChild(card);
+        });
+        
+        // Initialize gallery navigation
+        initializeGalleryNavigation();
+        
+        // Initialize "Open Image" buttons
+        initializeOpenImageButtons();
+    }
+
+    // --- 3. Gallery Navigation Logic ---
+    
+    function initializeGalleryNavigation() {
+        const imageBoxes = document.querySelectorAll('.product-img-box');
+        
+        imageBoxes.forEach(box => {
+            const productIndex = parseInt(box.getAttribute('data-product-index'));
+            const product = products[productIndex];
+            const img = box.querySelector('.product-img');
+            const prevBtn = box.querySelector('.gallery-nav.prev');
+            const nextBtn = box.querySelector('.gallery-nav.next');
+            const indicators = box.querySelectorAll('.gallery-indicator');
+            
+            if (product.images.length <= 1) return;
+            
+            // Navigation button handlers
+            if (prevBtn) {
+                prevBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    navigateGallery(box, img, indicators, product.images, -1);
+                });
+            }
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    navigateGallery(box, img, indicators, product.images, 1);
+                });
+            }
+            
+            // Indicator click handlers
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    setGalleryImage(img, indicators, product.images, index);
+                });
+            });
+            
+            // Touch swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            box.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+            
+            box.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe(box, img, indicators, product.images, touchStartX, touchEndX);
+            }, { passive: true });
+        });
+    }
+    
+    function navigateGallery(box, img, indicators, images, direction) {
+        const currentIndex = parseInt(img.getAttribute('data-current-index'));
+        let newIndex = currentIndex + direction;
+        
+        if (newIndex < 0) newIndex = images.length - 1;
+        if (newIndex >= images.length) newIndex = 0;
+        
+        setGalleryImage(img, indicators, images, newIndex);
+    }
+    
+    function setGalleryImage(img, indicators, images, index) {
+        img.src = images[index];
+        img.setAttribute('data-current-index', index);
+        
+        indicators.forEach((indicator, i) => {
+            indicator.classList.toggle('active', i === index);
+        });
+    }
+    
+    function handleSwipe(box, img, indicators, images, startX, endX) {
+        const swipeThreshold = 50;
+        const diff = startX - endX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe left - next image
+                navigateGallery(box, img, indicators, images, 1);
+            } else {
+                // Swipe right - previous image
+                navigateGallery(box, img, indicators, images, -1);
+            }
+        }
+    }
+
+    // --- 4. "Open Image" Button Functionality ---
+    
+    function initializeOpenImageButtons() {
+        const openImageButtons = document.querySelectorAll('.open-image-btn');
+        
+        openImageButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const productIndex = parseInt(button.getAttribute('data-product-index'));
+                const product = products[productIndex];
+                
+                // Get current image index from the product card
+                const imgBox = button.closest('.product-img-box');
+                const img = imgBox.querySelector('.product-img');
+                const currentIndex = parseInt(img.getAttribute('data-current-index'));
+                
+                openLightbox(product, currentIndex);
+            });
+        });
+    }
+    
+    function openLightbox(product, startIndex = 0) {
+        currentLightboxProduct = product;
+        currentLightboxIndex = startIndex;
+        
+        updateLightboxImage();
+        lightboxModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function updateLightboxImage() {
+        if (!currentLightboxProduct) return;
+        
+        lightboxImage.src = currentLightboxProduct.images[currentLightboxIndex];
+        
+        // Update counter
+        if (currentLightboxProduct.images.length > 1) {
+            lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${currentLightboxProduct.images.length}`;
+            lightboxCounter.style.display = 'block';
+        } else {
+            lightboxCounter.style.display = 'none';
+        }
+        
+        // Show/hide navigation buttons
+        if (currentLightboxProduct.images.length > 1) {
+            lightboxPrev.style.display = 'flex';
+            lightboxNext.style.display = 'flex';
+        } else {
+            lightboxPrev.style.display = 'none';
+            lightboxNext.style.display = 'none';
+        }
+    }
+    
+    function closeLightboxModal() {
+        lightboxModal.style.display = 'none';
+        document.body.style.overflow = '';
+        currentLightboxProduct = null;
+        currentLightboxIndex = 0;
+    }
+    
+    // Lightbox navigation
+    lightboxPrev.addEventListener('click', () => {
+        if (!currentLightboxProduct) return;
+        currentLightboxIndex--;
+        if (currentLightboxIndex < 0) {
+            currentLightboxIndex = currentLightboxProduct.images.length - 1;
+        }
+        updateLightboxImage();
+    });
+    
+    lightboxNext.addEventListener('click', () => {
+        if (!currentLightboxProduct) return;
+        currentLightboxIndex++;
+        if (currentLightboxIndex >= currentLightboxProduct.images.length) {
+            currentLightboxIndex = 0;
+        }
+        updateLightboxImage();
+    });
+    
+    closeLightbox.addEventListener('click', closeLightboxModal);
+    
+    // Close lightbox when clicking outside the image
+    lightboxModal.addEventListener('click', (e) => {
+        if (e.target === lightboxModal) {
+            closeLightboxModal();
+        }
+    });
+    
+    // Keyboard navigation for lightbox
+    document.addEventListener('keydown', (e) => {
+        if (lightboxModal.style.display === 'block') {
+            if (e.key === 'Escape') {
+                closeLightboxModal();
+            } else if (e.key === 'ArrowLeft') {
+                lightboxPrev.click();
+            } else if (e.key === 'ArrowRight') {
+                lightboxNext.click();
+            }
+        }
     });
 
-    // --- 2. Manejo del Modal de Pedido ---
+    // --- 5. Filter Functionality ---
+    
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.getAttribute('data-filter');
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Filter products
+            filterProducts(filter);
+        });
+    });
+    
+    function filterProducts(category) {
+        const cards = document.querySelectorAll('.product-card');
+        
+        cards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            
+            if (category === 'all' || cardCategory === category) {
+                card.classList.remove('hidden');
+                // Trigger animation
+                card.style.animation = 'none';
+                setTimeout(() => {
+                    card.style.animation = 'fadeInUp 0.5s ease';
+                }, 10);
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+    
+    // Add fadeInUp animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Initial render
+    renderProducts();
+
+    // --- 6. Order Modal Logic ---
     
     let selectedProduct = null;
 
-    // Abrir modal de pedido al hacer clic en "Separar pedido"
+    // Open modal when clicking "Separar pedido"
     productGrid.addEventListener('click', (e) => {
         if (e.target.classList.contains('btn-reserve') || e.target.closest('.btn-reserve')) {
             const button = e.target.classList.contains('btn-reserve') ? e.target : e.target.closest('.btn-reserve');
             const productIndex = button.getAttribute('data-index');
             selectedProduct = products[productIndex];
             
-            // Llenar datos del producto en el modal
+            // Fill product data in modal
             document.getElementById('productName').value = selectedProduct.name;
             document.getElementById('productPrice').value = `S/ ${selectedProduct.price.toFixed(2)}`;
             
-            // Llenar imagen y nombre en la vista previa
-            document.getElementById('modalProductImage').src = selectedProduct.img;
+            // Fill preview section with first image
+            document.getElementById('modalProductImage').src = selectedProduct.images[0];
             document.getElementById('modalProductName').textContent = selectedProduct.name;
             document.getElementById('modalProductPrice').textContent = `S/ ${selectedProduct.price.toFixed(2)}`;
             
             // Reset quantity to 1
             quantityInput.value = 1;
             
-            // Actualizar mensaje de entrega dinámicamente
+            // Update delivery message
             deliveryMessage.textContent = `Hola, el pedido llegará en ${selectedProduct.deliveryDays} días. Se le comunicará a su WhatsApp. Gracias.`;
             
-            // Mostrar modal
+            // Show modal
             orderModal.style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
     });
 
-    // --- 3. Quantity Controls ---
+    // --- 7. Quantity Controls ---
     
     qtyMinusBtn.addEventListener('click', () => {
         let currentValue = parseInt(quantityInput.value);
@@ -114,7 +456,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- 4. Cerrar modales ---
+    // --- 8. Close Modals ---
     
     closeOrderModal.addEventListener('click', () => {
         orderModal.style.display = 'none';
@@ -127,7 +469,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
     });
 
-    // Cerrar modal al hacer clic fuera de él
+    // Close modal when clicking outside
     window.addEventListener('click', (e) => {
         if (e.target === orderModal) {
             orderModal.style.display = 'none';
@@ -140,26 +482,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- 5. Validación del DNI (solo números, 8 dígitos) ---
+    // --- 9. DNI Validation (numbers only, 8 digits) ---
     
     const dniInput = document.getElementById('dni');
     dniInput.addEventListener('input', (e) => {
         e.target.value = e.target.value.replace(/[^0-9]/g, '');
     });
 
-    // --- 6. Validación del código de seguridad (solo números) ---
+    // --- 10. Security Code Validation (numbers only) ---
     
     const securityCodeInput = document.getElementById('securityCode');
     securityCodeInput.addEventListener('input', (e) => {
         e.target.value = e.target.value.replace(/[^0-9]/g, '');
     });
 
-    // --- 7. Envío del Formulario ---
+    // --- 11. Form Submission ---
     
     orderForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        // Obtener empresa de envío seleccionada
+        // Get selected shipping company
         const shippingCompany = document.querySelector('input[name="shippingCompany"]:checked');
         
         if (!shippingCompany) {
@@ -195,15 +537,15 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (response.ok) {
-                // Cerrar modal de pedido
+                // Close order modal
                 orderModal.style.display = 'none';
                 orderForm.reset();
                 document.body.style.overflow = '';
                 
-                // Mostrar modal de confirmación
+                // Show confirmation modal
                 confirmationModal.style.display = 'block';
                 
-                // Crear confeti de corazones
+                // Create heart confetti
                 createHeartConfetti();
             } else {
                 alert('Hubo un error al procesar tu pedido. Por favor, intenta nuevamente.');
@@ -214,7 +556,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- 8. Heart Confetti Effect ---
+    // --- 12. Heart Confetti Effect ---
     
     function createHeartConfetti() {
         const confettiContainer = document.createElement('div');
@@ -251,8 +593,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Add confetti animation
-    const style = document.createElement('style');
-    style.textContent = `
+    const confettiStyle = document.createElement('style');
+    confettiStyle.textContent = `
         @keyframes fallConfetti {
             0% {
                 top: -50px;
@@ -266,9 +608,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     `;
-    document.head.appendChild(style);
+    document.head.appendChild(confettiStyle);
 
-    // --- 9. Dynamic Decorative Elements ---
+    // --- 13. Dynamic Decorative Elements ---
     
     function createDynamicDecorations() {
         const floatingHearts = document.querySelector('.floating-hearts');
