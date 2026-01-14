@@ -30,10 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "Ramito de Snoopy", price: 60.00, img: "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768409998/WhatsApp_Image_2026-01-11_at_5.12.30_PM_nxyrjn.jpg", deliveryDays: 5 },
         { name: "Capibara bebé", price: 45.00, img: "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768412464/image_88_xhoukg.jpg", deliveryDays: 5 },
         { name: "Mini Spiderman", price: 55.00, img: "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768412752/image_89_a8ogo7.jpg", deliveryDays: 5 },
-        { name: "❤️", price: 120.00, img: "https://images.unsplash.com/photo-1629198688000-71f23e745b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", deliveryDays: 5 },
-        { name: "❤️", price: 95.00, img: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", deliveryDays: 5 },
-        { name: "❤️", price: 25.00, img: "/images/FloralTop.jpg", deliveryDays: 5 },
-        { name: "❤️", price: 50.00, img: "/images/FloralTop.jpg", deliveryDays: 5 }
     ];
 
     const productGrid = document.getElementById('productGrid');
