@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Pareja de llaveros de palta", 
             price: 35.00, 
             images: [
-                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768423289/WhatsApp_Image_2026-01-14_at_1.53.03_PM_hzfdze.jpg"
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768429192/WhatsApp_Image_2026-01-14_at_5.14.51_PM_j08jgx.jpg"
             ], 
             deliveryDays: 5,
             category: "llaveros"
