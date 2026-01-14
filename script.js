@@ -25,15 +25,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. Generador de Catálogo Dinámico ---
     
     const products = [
-        { name: "Top Crop Floral", price: 65.00, img: "/images/FloralTop.jpg", deliveryDays: 5 },
-        { name: "Amigurumi Osito", price: 45.00, img: "/images/FloralTop.jpg", deliveryDays: 3 },
-        { name: "Bolso Lila Boho", price: 89.00, img: "https://images.unsplash.com/photo-1544816155-12df9643f363?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", deliveryDays: 7 },
-        { name: "Bufanda Infinita", price: 55.00, img: "/images/FloralTop.jpg", deliveryDays: 4 },
-        { name: "Set Gorro Invierno", price: 40.00, img: "https://images.unsplash.com/photo-1576053139778-7e32f2ae3cfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", deliveryDays: 3 },
-        { name: "Cardigan Pastel", price: 120.00, img: "https://images.unsplash.com/photo-1629198688000-71f23e745b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", deliveryDays: 10 },
-        { name: "Chaleco Vintage", price: 95.00, img: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", deliveryDays: 8 },
-        { name: "Posavasos Flor (Set)", price: 25.00, img: "/images/FloralTop.jpg", deliveryDays: 2 },
-        { name: "Cesta Organizadora", price: 50.00, img: "/images/FloralTop.jpg", deliveryDays: 6 }
+        { name: "Ramito de Hello Kitty", price: 55.00, img: "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768409244/WhatsApp_Image_2026-01-11_at_5.20.52_PM_yctd1y.jpg", deliveryDays: 5 },
+        { name: "Vegeta", price: 140.00, img: "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768409737/WhatsApp_Image_2026-01-11_at_5.19.36_PM_ne186o.jpg", deliveryDays: 5 },
+        { name: "Ramito de Snoopy", price: 60.00, img: "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768409998/WhatsApp_Image_2026-01-11_at_5.12.30_PM_nxyrjn.jpg", deliveryDays: 5 },
+        { name: "❤️", price: 55.00, img: "/images/FloralTop.jpg", deliveryDays: 5 },
+        { name: "❤️", price: 40.00, img: "https://images.unsplash.com/photo-1576053139778-7e32f2ae3cfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", deliveryDays: 5 },
+        { name: "❤️", price: 120.00, img: "https://images.unsplash.com/photo-1629198688000-71f23e745b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", deliveryDays: 5 },
+        { name: "❤️", price: 95.00, img: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", deliveryDays: 5 },
+        { name: "❤️", price: 25.00, img: "/images/FloralTop.jpg", deliveryDays: 5 },
+        { name: "❤️", price: 50.00, img: "/images/FloralTop.jpg", deliveryDays: 5 }
     ];
 
     const productGrid = document.getElementById('productGrid');
