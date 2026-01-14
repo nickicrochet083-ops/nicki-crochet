@@ -11,11 +11,11 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <!-- Control de estado de bloqueo -->
-      <!-- <div id="store-status" data-status="Holi, la tienda se cerró. Se volverá a abrir, se les comunicará o será publicado en mis redes sociales"></div> 
+      <!-- <div id="store-status" data-status="Holi, la tienda se cerró. Se volverá a abrir, se les comunicará o será publicado en mis redes sociales"></div> -->
 
     <!-- Decorative Elements -->
     <div class="decorative-elements">
@@ -64,12 +64,43 @@
                     <i class="fa-solid fa-heart"></i>
                 </div>
                 <p>Piezas exclusivas tejidas a mano</p>
+                
+                <!-- Filter Buttons -->
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fa-solid fa-grid"></i> Todos
+                    </button>
+                    <button class="filter-btn" data-filter="ramos">
+                        <i class="fa-solid fa-seedling"></i> Ramos
+                    </button>
+                    <button class="filter-btn" data-filter="personajes">
+                        <i class="fa-solid fa-user"></i> Personajes
+                    </button>
+                    <button class="filter-btn" data-filter="llaveros">
+                        <i class="fa-solid fa-key"></i> Llaveros
+                    </button>
+                </div>
             </div>
 
             <div class="product-grid" id="productGrid">
             </div>
         </div>
     </section>
+
+    <!-- Image Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <span class="lightbox-close" id="closeLightbox">×</span>
+        <div class="lightbox-content">
+            <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <img src="" alt="Imagen ampliada" id="lightboxImage" class="lightbox-img">
+            <button class="lightbox-nav lightbox-next" id="lightboxNext">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
 
     <!-- Modal para Separar Pedido -->
     <div id="orderModal" class="modal">
