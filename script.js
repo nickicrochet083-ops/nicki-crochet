@@ -26,16 +26,60 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const products = [
         { 
-            name: "Ramito de Hello Kitty", 
+            // --- 1. Ramos productos ---
+            name: "Ramo de Hello Kitty", 
             price: 55.00, 
             images: [
                 "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768409244/WhatsApp_Image_2026-01-11_at_5.20.52_PM_yctd1y.jpg",
-                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1767994381/WhatsApp_Image_2026-01-09_at_10.32.02_AM_qissjq.jpg"
+                
+            // ---"Imagen 2" ---
             ],
             deliveryDays: 5,
             category: "ramos"
         },
+       
         { 
+            name: "Ramo de Snoopy", 
+            price: 60.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768409998/WhatsApp_Image_2026-01-11_at_5.12.30_PM_nxyrjn.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "ramos"
+        },
+        
+        { 
+        name: "Ramo de spiderman", 
+            price: 18.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768425769/WhatsApp_Image_2026-01-14_at_1.53.37_PM_ueo9i4.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "ramos"
+        },
+
+            { 
+        name: "Ramo de Lionel Messi, con diseño de Barcelona", 
+            price: 110.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768426126/WhatsApp_Image_2026-01-14_at_1.53.39_PM_jfx8uv.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "ramos"
+        },
+        
+        { 
+        name: "Ramo de Cr7 con uniforme Al Nassr Football Club", 
+            price: 110.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768427203/WhatsApp_Image_2026-01-14_at_1.53.41_PM_onjpga.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "ramos"
+        },
+
+            // --- 1. Personajes productos ---
+         { 
             name: "Vegeta", 
             price: 140.00, 
             images: [
@@ -44,15 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
             deliveryDays: 5,
             category: "personajes"
         },
-        { 
-            name: "Ramito de Snoopy", 
-            price: 60.00, 
-            images: [
-                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768409998/WhatsApp_Image_2026-01-11_at_5.12.30_PM_nxyrjn.jpg"
-            ], 
-            deliveryDays: 5,
-            category: "ramos"
-        },
+        
         { 
             name: "Capibara bebé", 
             price: 45.00, 
@@ -71,15 +107,51 @@ document.addEventListener('DOMContentLoaded', () => {
             deliveryDays: 5,
             category: "personajes"
         },
-        { 
-            name: "Llavero Tejido", 
-            price: 25.00, 
+
+         { 
+            name: "Cristiano Ronaldo", 
+            price: 45.00, 
             images: [
-                "/images/Keychain.jpg"
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768423917/WhatsApp_Image_2026-01-14_at_1.53.08_PM_j9szbv.jpg"
             ], 
-            deliveryDays: 3,
+            deliveryDays: 5,
+            category: "personajes"
+        },
+
+        { 
+            name: "Lionel Messi", 
+            price: 110.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768425418/WhatsApp_Image_2026-01-14_at_1.53.35_PM_ks0bdc.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "personajes"
+        },
+
+        
+        
+        
+            // --- 1. LLaveros productos ---
+        { 
+            name: "Pareja de llaveros de palta", 
+            price: 35.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768423289/WhatsApp_Image_2026-01-14_at_1.53.03_PM_hzfdze.jpg"
+            ], 
+            deliveryDays: 5,
             category: "llaveros"
-        }
+        },
+
+        { 
+            name: "LLavero de Goku", 
+            price: 32.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768423809/WhatsApp_Image_2026-01-14_at_1.53.05_PM_imvxw7.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "llaveros"
+        },
+        
     ];
 
     const productGrid = document.getElementById('productGrid');
