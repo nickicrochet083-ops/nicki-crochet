@@ -656,7 +656,7 @@ document.addEventListener('DOMContentLoaded', () => {
             quantityInput.value = 1;
             
             // Update delivery message
-            deliveryMessage.textContent = `Hola, el pedido llegará en ${selectedProduct.deliveryDays} días. Se le comunicará a su WhatsApp. Gracias.`;
+            deliveryMessage.textContent = `Hola, tu pedido se enviará en ${selectedProduct.deliveryDays} días. Se le comunicará a su WhatsApp. Gracias.`;
             
             // Show modal
             orderModal.style.display = 'block';
