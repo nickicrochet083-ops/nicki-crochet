@@ -153,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
             price: 55.00, 
             images: [
                 "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768412752/image_89_a8ogo7.jpg"
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768438873/WhatsApp_Image_2026-01-14_at_1.59.37_PM_1_zpqqk1.jpg"
             ], 
             deliveryDays: 5,
             category: "personajes"
@@ -309,17 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ], 
             deliveryDays: 5,
             category: "box"
-        },
-
-          { 
-            name: "Box de Mini Hombre Araña y Hot Wheels con múltiples detalles", 
-            price: 30.00, 
-            images: [
-                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768438873/WhatsApp_Image_2026-01-14_at_1.59.37_PM_1_zpqqk1.jpg"
-            ], 
-            deliveryDays: 5,
-            category: "box"
-        },
+        },     
     ];
 
    const productGrid = document.getElementById('productGrid');
