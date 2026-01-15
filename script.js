@@ -372,7 +372,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="product-price">S/ ${product.price.toFixed(2)}</span>
                     <span class="delivery-days">
                         <i class="fa-solid fa-truck-fast"></i>
-                        Llega en ${product.deliveryDays} días
+                        El envío es en ${product.deliveryDays} días
                     </span>
                     <button class="btn-reserve" data-index="${index}">
                         <i class="fa-solid fa-bookmark"></i> Separar pedido
