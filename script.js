@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           { 
         name: "Ramo de tulipán versión 1", 
-            price: 30.00, 
+            price: 15.00, 
             images: [
                 "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768445716/image_88_ilsf6f.jpg"
             ], 
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
          { 
         name: "Ramo de tulipán versión 2", 
-            price: 30.00, 
+            price: 15.00, 
             images: [
                 "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768446573/image_87_idwmia.jpg"
             ], 
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         { 
         name: "Ramo de tulipán versión 3", 
-            price: 30.00, 
+            price: 15.00, 
             images: [
                 "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768446651/image_88_h7th62.jpg"
             ], 
@@ -119,18 +119,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
          { 
-        name: "Ramo de tulipán versión 4", 
-            price: 30.00, 
-            images: [
-                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768446916/image_87_m0l0or.jpg"
-            ], 
-            deliveryDays: 5,
-            category: "ramos"
-        },
-
-         { 
         name: "Ramo de tulipán versión 5", 
-            price: 30.00, 
+            price: 15.00, 
             images: [
                 "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768447022/image_88_fpujfa.jpg"
             ], 
@@ -294,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "LLavero versión Minion potaxie", 
             price: 25.00, 
             images: [
-                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768444287/image_88_geovot.jpg"
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768444443/image_87_ef2wxz.jpg"
             ], 
             deliveryDays: 5,
             category: "llaveros"
