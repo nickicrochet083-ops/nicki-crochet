@@ -302,15 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         
         // --- Box productos (Cajas de Regalo) ---
-        { 
-            name: "Box del hombre araña con multiples detalles", 
-            price: 55.00, 
-            images: [
-                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768438873/WhatsApp_Image_2026-01-14_at_1.59.37_PM_1_zpqqk1.jpg"
-            ], 
-            deliveryDays: 5,
-            category: "box"
-        },     
+         
     ];
 
    const productGrid = document.getElementById('productGrid');
