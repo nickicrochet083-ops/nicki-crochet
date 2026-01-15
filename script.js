@@ -78,6 +78,66 @@ document.addEventListener('DOMContentLoaded', () => {
             category: "ramos"
         },
 
+          { 
+        name: "Maceta", 
+            price: 25.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768445400/image_87_jnmjnl.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "ramos"
+        },
+
+          { 
+        name: "Ramo de tulipán versión 1", 
+            price: 30.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768445716/image_88_ilsf6f.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "ramos"
+        },
+
+         { 
+        name: "Ramo de tulipán versión 2", 
+            price: 30.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768446573/image_87_idwmia.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "ramos"
+        },
+
+        { 
+        name: "Ramo de tulipán versión 3", 
+            price: 30.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768446651/image_88_h7th62.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "ramos"
+        },
+
+         { 
+        name: "Ramo de tulipán versión 4", 
+            price: 30.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768446916/image_87_m0l0or.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "ramos"
+        },
+
+         { 
+        name: "Ramo de tulipán versión 5", 
+            price: 30.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768447022/image_88_fpujfa.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "ramos"
+        },
+
             // --- 1. Personajes productos ---
          { 
             name: "Vegeta", 
@@ -129,11 +189,9 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
         
-        
-        
             // --- 1. LLaveros productos ---
         { 
-            name: "Pareja de llaveros de palta", 
+            name: "Parejas de llaveros de palta", 
             price: 35.00, 
             images: [
                 "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768429192/WhatsApp_Image_2026-01-14_at_5.14.51_PM_j08jgx.jpg"
@@ -151,18 +209,127 @@ document.addEventListener('DOMContentLoaded', () => {
             deliveryDays: 5,
             category: "llaveros"
         },
+
+         { 
+            name: "LLavero de Tralalero Tralala ", 
+            price: 35.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768439477/WhatsApp_Image_2026-01-14_at_1.59.48_PM_dgg5iy.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "llaveros"
+        },
+
+        { 
+            name: "Parejas de llaveros de Snoopy ", 
+            price: 55.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768439873/WhatsApp_Image_2026-01-14_at_1.59.52_PM_und0p5.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "llaveros"
+        },
+
+           { 
+            name: "LLavero del personaje de Furia de la película de Intensamente", 
+            price: 25.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768441486/image_87_im3srm.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "llaveros"
+        },
+
+           { 
+            name: "LLavero del personaje de Alegría de la película de Intensamente", 
+            price: 25.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768441867/image_88_lcdohf.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "llaveros"
+        },
+
+           { 
+            name: "LLavero del personaje de Asiedad de la película de Intensamente", 
+            price: 25.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768442701/image_87_xoxoxo.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "llaveros"
+        },
+
+           { 
+            name: "LLavero del personaje de Desagrado de la película de Intensamente", 
+            price: 25.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768443004/image_88_th0n5z.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "llaveros"
+        },
+
+           { 
+            name: "LLavero del personaje de Ennui de la película de Intensamente", 
+            price: 25.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768444179/image_87_lzr9un.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "llaveros"
+        },
+
+           { 
+            name: "LLavero del personaje de tristeza de la película de Intensamente", 
+            price: 25.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768444287/image_88_geovot.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "llaveros"
+        },
+
+         { 
+            name: "LLavero versión Minion potaxie", 
+            price: 25.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768444287/image_88_geovot.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "llaveros"
+        },
+
+          { 
+            name: "LLavero versión Kitty  ", 
+            price: 25.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768444604/image_88_j9wevf.jpg "
+            ], 
+            deliveryDays: 5,
+            category: "llaveros"
+        },
         
         // --- Box productos (Cajas de Regalo) ---
         { 
-            name: "Box de San Valentín - Corazón Tejido", 
-            price: 85.00, 
+            name: "Box del hombre araña con multiples detalles", 
+            price: 55.00, 
             images: [
-                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768426126/WhatsApp_Image_2026-01-14_at_1.53.39_PM_jfx8uv.jpg"
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768438873/WhatsApp_Image_2026-01-14_at_1.59.37_PM_1_zpqqk1.jpg"
             ], 
-            deliveryDays: 7,
+            deliveryDays: 5,
             category: "box"
         },
-        
+
+          { 
+            name: "Box de Mini Hombre Araña y Hot Wheels con múltiples detalles", 
+            price: 30.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768438873/WhatsApp_Image_2026-01-14_at_1.59.37_PM_1_zpqqk1.jpg"
+            ], 
+            deliveryDays: 5,
+            category: "box"
+        },
     ];
 
    const productGrid = document.getElementById('productGrid');
