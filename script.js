@@ -152,9 +152,20 @@ document.addEventListener('DOMContentLoaded', () => {
             category: "llaveros"
         },
         
+        // --- Box productos (Cajas de Regalo) ---
+        { 
+            name: "Box de San Valentín - Corazón Tejido", 
+            price: 85.00, 
+            images: [
+                "https://res.cloudinary.com/dwzwa3gp0/image/upload/v1768426126/WhatsApp_Image_2026-01-14_at_1.53.39_PM_jfx8uv.jpg"
+            ], 
+            deliveryDays: 7,
+            category: "box"
+        },
+        
     ];
 
-    const productGrid = document.getElementById('productGrid');
+   const productGrid = document.getElementById('productGrid');
     const orderModal = document.getElementById('orderModal');
     const confirmationModal = document.getElementById('confirmationModal');
     const closeOrderModal = document.getElementById('closeOrderModal');
@@ -209,8 +220,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     <img src="${product.images[0]}" alt="${product.name}" class="product-img" data-current-index="0">
                     ${galleryControlsHTML}
                     <button class="open-image-btn" data-product-index="${index}">
-                        <i class="fa-solid fa-expand"></i> </butto> 
-                    </div>
+                        <i class="fa-solid fa-expand"></i>
+                    </button>
+                </div>
             `;
             
             card.innerHTML = `
